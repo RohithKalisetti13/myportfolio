@@ -3,104 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohith's Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        nav {
-            margin: 1rem 0;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 1.2rem;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        section {
-            padding: 2rem;
-            text-align: center;
-        }
-        .card {
-            display: inline-block;
-            margin: 1rem;
-            padding: 1rem;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            width: 300px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .card img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-        .card h3 {
-            margin: 1rem 0 0.5rem;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+    <title>Rohith Kumar Kalisetti | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Rohith's Portfolio</h1>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <a href="#" id="profile-click">
+                    <img src="your-photo-cropped.png" alt="Rohith Kumar Kalisetti">
+                </a>
+                <h1>Rohith Kumar Kalisetti</h1>
+                <p class="title">Computer Engineer</p>
+                <p class="subtitle">Bridging hardware and software to build secure, high-performance embedded systems that just work.</p>
+                <p class="subtitle" id="dynamic-subtitle"></p>
+            </div>
+            
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello! I'm Rohith, a passionate computer engineering student focusing on chip design and GPU-related fields. I love solving challenging problems and exploring innovative technology.</p>
-    </section>
+            <!-- Fullscreen Image -->
+            <div id="image-modal">
+                <span id="close-modal">&times;</span>
+                <img id="modal-image" src="your-photo.jpeg" alt="Rohith Kumar Kalisetti">
+            </div>
 
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="card">
-            <img src="https://via.placeholder.com/300" alt="Project 1">
-            <h3>Project 1</h3>
-            <p>A brief description of your project goes here.</p>
-        </div>
-        <div class="card">
-            <img src="https://via.placeholder.com/300" alt="Project 2">
-            <h3>Project 2</h3>
-            <p>A brief description of another project goes here.</p>
-        </div>
-    </section>
+            <nav>
+                <ul>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                </ul>
+            </nav>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out to me via email: <a href="mailto:rohith@example.com">rohith@example.com</a></p>
-    </section>
+            <!-- Social Media Icons -->
+            <div class="social-icons">
+                <a href="https://github.com/RohithKalisetti13" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/rohithkalisetti" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:rohithkalisetti.13@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </aside>
 
-    <footer>
-        <p>&copy; 2025 Rohith. All rights reserved.</p>
-    </footer>
+        <!-- Right Side Content -->
+        <main class="content">
+            <section id="about" class="section active">
+                <!-- Cover Image -->
+                <div class="about-cover">
+                    <h2>A Bit About Me</h2>
+                </div>
+                
+                <div class="about-content">
+                    <p>
+                        I’m a Computer Engineer who loves pushing the boundaries of hardware and software. Whether it’s optimizing GPU performance, 
+                        building embedded systems, or reverse-engineering firmware, I enjoy tackling complex challenges at the intersection of 
+                        performance, security, and efficiency. I’ve worked with CUDA, FPGAs, microcontrollers, and low-level system design, always 
+                        looking for ways to make things run faster, smarter, and more securely.
+                    </p>
+                    <p>
+                        Right now, I’m a Graduate Teaching Assistant, helping students navigate GPU architecture, microcontroller programming, and 
+                        system design. When I’m not teaching, I’m deep into GHIDRA, QEMU, and low-level debugging, exploring how systems work under 
+                        the hood. My projects range from hardware security enforcement to real-time embedded computing, and I love the challenge 
+                        of fine-tuning performance at both the hardware and software level.
+                    </p>
+                    <p>
+                        Outside of engineering, I like to keep things fun and creative. I enjoy playing games, watching movies, and hitting the cricket field whenever I get the chance. Photography is another thing I love—I’m always looking for interesting shots, whether it’s a cool landscape or just capturing everyday moments. Back in my undergrad, I was the Head of the Decor Department, which was a blast because I got to work on arts and crafts, designing event setups, and bringing creative ideas to life. Whether it's working on hardware or making something from scratch, I just enjoy building things that stand out.
+                    </p>
+                    <p>
+                        If you're into high-performance computing, hardware-optimized solutions, or just a good cricket match, let’s connect! 
+                    </p>
+                </div>
+            </section>
+            
+            <section id="experience" class="section active">
+                <h2>My Journey in Tech</h2>
+                <div class="experience-container">
+            
+                    <!-- Experience 1 -->
+                    <div class="experience-entry">
+                        <div class="experience-left">
+                            <h3>Aug 2024 – Present</h3>
+                            <p>George Mason University</p>
+                        </div>
+                        <div class="experience-right">
+                            <h2>Graduate Teaching Assistant</h2>
+                            <p>
+                                As a Graduate Teaching Assistant, I have been actively involved in guiding students through embedded systems, microcontrollers, 
+                                and GPU programming, assisting them in both hardware and software-based problem-solving. My responsibilities include:
+                            </p>
+                            <ul>
+                                <li><strong>ECE 447 (Microcontrollers Lab):</strong> Led hands-on lab sessions where students worked with MSP430 microcontrollers, learning how to write and debug Embedded C firmware. Assisted students with troubleshooting hardware connections, debugging low-level code, and implementing real-time control systems. Evaluated and graded lab reports, assignments, and exams to ensure students grasped key embedded concepts.</li>
+                                <li><strong>ECE 445/555 (GPU Architecture & Programming):</strong> Helped students understand parallel computing concepts and CUDA programming, offering support in GPU optimization, memory management, and performance tuning. Graded projects and assignments focused on real-world high-performance computing challenges.</li>
+                                <li><strong>ECE 492/493 (Senior Design Project I & II):</strong> Mentored students through full-cycle project development, guiding them from concept ideation to hardware and software implementation. Evaluated final reports and served as a panel judge during project presentations.</li>
+                            </ul>
+                            <p class="technologies">Technologies: MSP430, Embedded C, CUDA, Parallel Computing</p>
+                        </div>
+                    </div>
+            
+                    <!-- Experience 2 -->
+                    <div class="experience-entry">
+                        <div class="experience-left">
+                            <h3>Feb 2022 – Jun 2023</h3>
+                            <p>Cognizant Technology Solutions / Apple Maps</p>
+                        </div>
+                        <div class="experience-right">
+                            <h2>Senior Process Analyst</h2>
+                            <p>
+                                During my time at Cognizant Technology Solutions, I worked closely with Apple Maps, enhancing the accuracy and efficiency of geo-spatial data processing workflows. My key contributions included:
+                            </p>
+                            <ul>
+                                <li><strong>Data Optimization & Workflow Automation:</strong> Streamlined data processing pipelines, improving the accuracy of 100+ daily mapping updates. Developed automated data validation techniques that reduced manual intervention and improved efficiency.</li>
+                                <li><strong>Geo-Spatial Data Analysis & Mapping:</strong> Led efforts to resolve 1,000+ geo-data inconsistencies, ensuring high-precision updates to Apple Maps' location database. Used GIS-based tools to analyze map inconsistencies and implement corrective measures.</li>
+                                <li><strong>Subject Matter Expertise & Process Improvements:</strong> As a Subject Matter Expert (SME), I trained team members and contributed to the development of best practices for handling large-scale mapping data. Implemented workflow improvements that increased processing efficiency by 41%.</li>
+                            </ul>
+                            <p class="technologies">Technologies: GIS, Python, Data Processing Pipelines</p>
+                        </div>
+                    </div>
+            
+                    <!-- Experience 3 -->
+                    <div class="experience-entry">
+                        <div class="experience-left">
+                            <h3>Jun 2020 – Oct 2021</h3>
+                            <p>Amazon Development Centre</p>
+                        </div>
+                        <div class="experience-right">
+                            <h2>Process Specialist – Fraud Detection</h2>
+                            <p>
+                                At Amazon, I worked as part of the fraud detection and security team, focusing on analyzing fraudulent activity patterns and improving real-time account security measures. Key responsibilities included:
+                            </p>
+                            <ul>
+                                <li><strong>Account Monitoring & Fraud Detection:</strong> Investigated 500+ customer accounts daily, using machine learning-based fraud detection tools to identify suspicious transactions and mitigate risks.</li>
+                                <li><strong>Process Optimization & Automation:</strong> Designed workflow improvements that reduced fraud detection response time by 30%, increasing security efficiency and accuracy.</li>
+                                <li><strong>Collaboration with Security Teams:</strong> Worked with engineering and security teams to enhance fraud detection models, reducing false positives while maintaining high detection accuracy.</li>
+                            </ul>
+                            <p class="technologies">Technologies: Fraud Detection, ML-Based Security, Process Optimization</p>
+                        </div>
+                    </div>
+            
+                    <!-- Experience 4 -->
+                    <div class="experience-entry">
+                        <div class="experience-left">
+                            <h3>Oct 2019 – Feb 2020</h3>
+                            <p>Collabera Technologies / Dell Technologies</p>
+                        </div>
+                        <div class="experience-right">
+                            <h2>Operational Specialist</h2>
+                            <p>
+                                As an Operational Specialist supporting Dell Technologies, I was the first point of contact for technical issue resolution, ensuring efficient troubleshooting and streamlined support for hardware and software-related customer queries. My responsibilities included:
+                            </p>
+                            <ul>
+                                <li><strong>Diagnosed and resolved hardware and software issues</strong> for Dell customers, including system performance, BIOS settings, driver installations, and connectivity troubleshooting.</li>
+                                <li><strong>Analyzed and categorized customer-reported issues,</strong> providing first-level triage and escalation for advanced debugging.</li>
+                                <li><strong>Managed and responded to 40+ technical support emails daily,</strong> ensuring a 95% resolution rate within SLAs.</li>
+                                <li><strong>Collaborated with internal engineering teams</strong> to document recurring technical issues and improve knowledge base solutions for faster troubleshooting.</li>
+                            </ul>
+                            <p class="technologies">Technologies: Hardware Debugging, System Optimization, Technical Support</p>
+                        </div>
+                    </div>
+            
+                </div>
+            </section>
+            
+            
+            <section id="projects" class="section active">
+                <h2>Hands-On Engineering</h2>
+                <div class="projects-container">
+                    <div class="project-list">
+                        <!-- Project 1 -->
+                        <div class="project-card" data-project="wheelchair">
+                            <div class="project-year">Apr 2019</div>
+                            <div class="project-content">
+                                <h3>Gesture-Controlled Smart Wheelchair<span class="click-icon">🔍</span></h3>
+                                <p>A smarter way to move—this gesture-controlled wheelchair uses MEMS sensors, obstacle detection, and a micro-processor to provide effortless and intuitive mobility.</p>
+                            </div>
+                        </div>
+            
+                        <!-- Project 2 -->
+                        <div class="project-card" data-project="beamformer">
+                            <div class="project-year">May 2024</div>
+                            <div class="project-content">
+                                <h3>Digital Beamformer on GPUs<span class="click-icon">🔍</span></h3>
+                                <p>Speed meets precision—this CUDA-powered beamforming system accelerates signal processing by 85%, improving wireless communication and radar accuracy with real-time efficiency.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Full Project Modal -->
+                <div id="project-modal" class="project-modal">
+                    <span id="close-project-modal">&times;</span>
+                    <div class="project-modal-content"></div>
+                </div>
+            </section>
+            
+            <section id="skills" class="section active">
+                <h2>🛠 My Engineering Toolkit</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>💻 Programming Languages</h3>
+                        <p>Python, C, C++, CUDA, MATLAB, MSP430, Shell Scripting</p>
+                    </div>
+            
+                    <div class="skill-category">
+                        <h3>📚 Libraries & Frameworks</h3>
+                        <p>TensorFlow, PyTorch, Pandas, NumPy, OpenCV, Scikit-Learn, Matplotlib</p>
+                    </div>
+            
+                    <div class="skill-category">
+                        <h3>🛠 Developer Tools</h3>
+                        <p>QEMU, GHIDRA, GitHub, VS Code, Arduino IDE, CCS, TensorBoard</p>
+                    </div>
+            
+                    <div class="skill-category wide">
+                        <h3>🔧 Hardware & Embedded Systems</h3>
+                        <p>MSP430, Raspberry Pi, RTL Design, FPGA Programming, IoT Firmware</p>
+                    </div>
+            
+                    <div class="skill-category">
+                        <h3>🔗 Communication Interfaces</h3>
+                        <p>SPI, I2C, UART, CAN, Ethernet</p>
+                    </div>
+            
+                    <div class="skill-category small">
+                        <h3>🖥 Operating Systems</h3>
+                        <p>Ubuntu</p>
+                    </div>
+                </div>
+            </section>
+            
+            
+            
+            
+        </main>
+    </div>
 </body>
 </html>
