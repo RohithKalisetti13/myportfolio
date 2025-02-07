@@ -1,0 +1,612 @@
+/* Import Modern Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
+
+/* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #08292A;
+    color: #EAEAEA;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Container Layout */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 20%;  /* Reduced from 25% */
+    background-color: #111;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    text-align: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #bbb;
+    text-align: center;
+    max-width: 90%;
+    line-height: 1.4;
+    margin-top: 65px; 
+    margin-bottom: 0px; /* Reduce this to decrease gap */
+}
+
+/* Profile Image (Clickable & Visible) */
+.profile img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00ffcc;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+
+
+.profile img:hover {
+    transform: scale(1.05);
+}
+
+/* Fullscreen Image Modal */
+#image-modal {
+    position: fixed;
+    top: 0;
+    left: 25%;
+    width: 75%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 100; /* Ensures it stays above sections */
+}
+
+/* Fullscreen Image */
+#image-modal img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+/* Close Button */
+#close-modal {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#close-modal:hover {
+    color: #00ffcc;
+}
+
+/* Show Image Modal */
+#image-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Name & Title */
+.sidebar h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.sidebar p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* Navigation */
+.sidebar nav {
+    margin-top: 5px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 12px 0;
+}
+
+.sidebar nav ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover, .sidebar nav ul li a.active {
+    color: #00ffcc;
+    font-weight: 600;
+}
+
+
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 40px;
+    padding-bottom: 90px;
+}
+
+
+.social-icons a {
+    color: #888;
+    font-size: 1.6rem;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #00ffcc;
+    transform: scale(1.1);
+}
+
+/* Right Content */
+.content {
+    margin-left: 20%; /* Matches reduced sidebar width */
+    width: 80%;
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    position: relative;
+    z-index: 1;
+}
+
+/* Sections */
+/* Section Styling - Adjust Height */
+.section {
+    width: 80%;
+    min-height: 100vh; /* Allow sections to grow based on content */
+    padding: 60px 40px; /* Adds internal padding for spacing */
+    box-sizing: border-box;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
+.section:not(:last-child) {
+    margin-bottom: 50px; /* Adds spacing between sections */
+}
+
+
+/* About Section Styling */
+#about {
+    max-width: 100%;
+    line-height: 1.6;
+    text-align: left;
+}
+
+#about h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 25px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+#about p {
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    color: #EAEAEA;
+}
+
+
+/* Active Section */
+.section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* About Section - Add Background Cover */
+
+.about-cover {
+    width: 120%;
+    height: 400px; /* Increased height for full visibility */
+    background: url('cover-photo.jpeg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Moves text lower */
+    /* padding-bottom: 25px; */
+    padding-top: 10px; /* Increased padding above */
+    position: relative;
+}
+
+/* About Content Box */
+.about-content {
+    width: 120%;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
+    margin-top: 40px; /* Increased margin to move it further down */
+    text-align: justify;
+}
+
+
+/* Projects Container */
+.projects-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Project List - Vertical Scroll */
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    max-height: 90vh;
+    padding: 20px;
+}
+
+/* Individual Project Card */
+.project-card {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a1a, #222);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    gap: 20px;
+    position: relative;
+}
+
+/* Hover Effect */
+.project-card:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #222, #00ffcc20);
+}
+
+.click-icon {
+    font-size: 1.2rem;
+    margin-left: 8px;
+    color: #00ffcc;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.project-card:hover .click-icon {
+    transform: scale(1.2);
+}
+
+
+/* Project Year */
+.project-year {
+    font-size: 1.2rem;
+    color: #00ffcc;
+    font-weight: bold;
+    min-width: 100px;
+    text-align: right;
+}
+
+/* Project Content */
+.project-content {
+    flex-grow: 1;
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 5px 0;
+}
+
+.project-content p {
+    font-size: 1rem;
+    color: #bbb;
+    margin: 5px 0;
+}
+
+/* Full Project Modal */
+.project-modal {
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 65%; /* Adjusted width to make it fit better */
+    max-width: 1200px; /* Ensuring it's not too wide */
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center; /* Ensuring text inside is aligned properly */
+}
+
+
+.project-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Full Project Title */
+.project-modal h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #EAEAEA;
+}
+
+/* Full Project Description */
+.project-modal p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #EAEAEA;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 120%;
+}
+
+
+/* Skill Tags */
+.project-modal .project-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.project-modal .project-tags span {
+    background: rgba(0, 255, 204, 0.2);
+    color: #00ffcc;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Skill Tag Hover Effect */
+.project-modal .project-tags span:hover {
+    background: #00ffcc;
+    color: #111;
+    transform: scale(1.1);
+}
+
+.github-link {
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* GitHub Icon */
+.github-link a {
+    font-size: 1.8rem;
+    color: #00ffcc;
+    transition: transform 0.3s ease-in-out;
+}
+
+.github-link a:hover {
+    transform: scale(1.2);
+}
+
+/* EXPERIENCE SECTION */
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    width: 105%;
+    margin: auto;
+    gap: 20px;
+    padding: 40px 30px;
+    position: relative;
+}
+
+/* Vertical Timeline Indicator */
+.experience-container::before {
+    content: "";
+    position: absolute;
+    left: 5%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 255, 204, 0.3), rgba(0, 255, 204, 0.1));
+    border-radius: 5px;
+}
+
+/* INDIVIDUAL EXPERIENCE CARD */
+.experience-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    background: linear-gradient(135deg, #1a1a1a, #222);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 12px rgba(0, 255, 204, 0.05);
+    margin-bottom: 35px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Timeline Dot */
+.experience-entry::before {
+    content: "";
+    position: absolute;
+    left: 4.8%;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    background: #00ffcc;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0px 0px 8px rgba(0, 255, 204, 0.7);
+}
+
+/* Hover Effect */
+.experience-entry:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 6px 15px rgba(0, 255, 204, 0.2);
+}
+
+/* Left Column: Date & Company */
+.experience-left {
+    width: 180px;
+    text-align: right;
+    border-right: 2px solid rgba(0, 255, 204, 0.6);
+    padding-right: 25px;
+    flex-shrink: 0;
+}
+
+.experience-left h3 {
+    font-size: 1.2rem;
+    color: #00ffcc;
+    font-weight: bold;
+}
+
+.experience-left p {
+    font-size: 1rem;
+    color: #bbb;
+}
+
+/* Right Column: Job Role & Details */
+.experience-right {
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.experience-right h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+/* Bullet Points with Animation */
+.experience-right ul {
+    font-size: 1rem;
+    color: #bbb;
+    padding-left: 20px;
+    list-style-type: disc;
+    line-height: 1.7;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.6s ease-in-out forwards;
+}
+
+/* Space out bullet points */
+.experience-right ul li {
+    margin-bottom: 8px;
+}
+
+/* Technologies Section */
+.technologies {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #00ffcc;
+    border-top: 1px solid rgba(0, 255, 204, 0.3);
+    padding-top: 10px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Skills Section */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    width: 85%;
+    text-align: center;
+    justify-content: center;
+}
+
+/* Skill Category Cards */
+.skill-category {
+    background: linear-gradient(135deg, #1a1a1a, #222);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+}
+
+/* Hover Effect */
+.skill-category:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 18px rgba(0, 255, 204, 0.3);
+}
+
+/* Different Size Variations */
+.skill-category.wide {
+    grid-column: span 2;
+}
+.skill-category.small {
+    grid-column: span 1;
+}
+
+/* Skill Category Titles */
+.skill-category h3 {
+    color: #00ffcc;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+/* Skill Descriptions */
+.skill-category p {
+    color: #bbb;
+    font-size: 1.1rem;
+}
